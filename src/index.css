@@ -67,3 +67,37 @@
   border: none;
   border-radius: 3px;
 }
+
+/* profile component style  */
+
+.profileContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 90vh;
+}
+
+.profileMenu {
+  grid-column: 1/3;
+  background-color: bisque;
+}
+
+.profileMenu a {
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  margin: 3px 0;
+  background-color: lightseagreen;
+  color: floralwhite;
+}
+
+.profileContent {
+  grid-column: 3/-1;
+}
+
+/* edit profile component style  */
+.editProfileContainer {
+  width: 30%;
+  padding: 25px 15px;
+}
