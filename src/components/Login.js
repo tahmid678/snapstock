@@ -20,6 +20,8 @@ function Login() {
         formData.append('address', address);
         formData.append('phone', phone);
         formData.append('profileImage', profileImage);
+
+        console.log(formData);
     }
 
     return (
