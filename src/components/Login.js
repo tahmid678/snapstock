@@ -49,7 +49,7 @@ function Login() {
 
     return (
         <div className='loginFormContainer'>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {mode === 'Sign Up' ?
                     <>
                         <div className='formInput'>
@@ -169,7 +169,6 @@ function Login() {
                         type='submit'
                         value={mode}
                         className='inputButton'
-                        onClick={handleSubmit}
                     />
                 </div>
                 <p onClick={toggleMode}>{mode === 'Sign Up' ? 'Already have an account? Sign In here..' : 'Do not have an account? Sign Up here..'}</p>
