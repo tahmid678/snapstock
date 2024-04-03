@@ -101,3 +101,101 @@
   width: 30%;
   padding: 25px 15px;
 }
+
+/* upload photo container style  */
+.uploadPhotoContainer {
+  width: 30%;
+  padding: 25px 15px;
+}
+
+.uploadPhotContainer textarea {
+  width: 100%;
+}
+
+/* photoCard  */
+.photoCard {
+  width: 140px;
+  height: 170px;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-align: center;
+  margin: 10px;
+}
+
+.photoCard img {
+  width: 100%;
+  height: 100px;
+}
+
+/* myPhotosContainer  */
+.myPhotosContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+/* homeContainer  */
+.homeContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 10px;
+  padding: 10px;
+}
+
+.photoDetailsCard {
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.photoDetailsCard .imageName {
+  text-align: center;
+}
+
+.photoDetailsCard .imageCategory {
+  text-align: center;
+}
+
+.photoDetailsCard img {
+  width: 100%;
+  height: 170px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.imageNavigation {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.imageDetailsButton {
+  width: 40%;
+  margin: 0 3px;
+}
+
+.imageDetailsButton button {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  padding: 2px;
+  background-color: #198754;
+  color: white;
+}
+
+.likeIcon {
+  padding: 2px;
+}
+
+.imageLike {
+  font-size: 16px;
+  padding: 1px;
+}
+
+.imageLikeInfo {
+  display: flex;
+  margin-left: 30px;
+}

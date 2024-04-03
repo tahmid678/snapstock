@@ -6,6 +6,7 @@ function Profile() {
         <div className='profileContainer'>
             <div className='profileMenu'>
                 <NavLink to='edit-profile'>Edit Profile</NavLink>
+                <NavLink to='upload-photo'>Upload Photo</NavLink>
                 <NavLink to='my-photos'>My Photos</NavLink>
                 <NavLink to='liked-photos'>Liked Photos</NavLink>
                 <NavLink to='logout'>Log Out</NavLink>

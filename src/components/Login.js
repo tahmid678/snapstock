@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 function Login() {
     const [firstName, setFirstName] = React.useState('');
@@ -7,7 +8,7 @@ function Login() {
     const [password, setPassword] = React.useState('');
     const [address, setAddress] = React.useState('');
     const [phone, setPhone] = React.useState('');
-    const [profileImage, setProfileImage] = React.useState('');
+    const [profileImage, setProfileImage] = React.useState(null);
     const [mode, setMode] = React.useState('Sign In');
 
 
@@ -24,7 +25,6 @@ function Login() {
             formData.append('phone', phone);
             formData.append('profileImage', profileImage);
 
-            console.log(formData);
             setFirstName('');
             setLastName('');
             setEmail('');
@@ -32,13 +32,38 @@ function Login() {
             setAddress('');
             setPhone('');
             setProfileImage('');
-        } else {
-            formData.append('email', email);
-            formData.append('password', password);
 
-            console.log(formData);
+            axios.post('http://localhost:3001/user/signup', formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            })
+                .then(response => response.data)
+                .then(data => {
+                    console.log(data)
+                    setMode('Sign In');
+                })
+                .catch(err => console.log(err));
+        } else {
+            const data = {
+                email: email,
+                password: password
+            }
+
             setEmail('');
             setPassword('');
+
+            axios.post('http://localhost:3001/user/signin', data, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(response => response.data)
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem('token', data);
+                })
+                .catch(err => console.log(err));
         }
 
     }
@@ -131,7 +156,6 @@ function Login() {
                                 type='file'
                                 name='profileImage'
                                 className='inputClass'
-                                value={profileImage}
                                 onChange={(e) => setProfileImage(e.target.files[0])}
                             />
                         </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 function EditProfile() {
     const [firstName, setFirstName] = React.useState('');
@@ -7,10 +9,43 @@ function EditProfile() {
     const [address, setAddress] = React.useState('');
     const [phone, setPhone] = React.useState('');
 
+    React.useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const { firstName, lastName, email, address, phone } = jwtDecode(token);
+            setFirstName(firstName);
+            setLastName(lastName);
+            setEmail(email);
+            setAddress(address);
+            setPhone(phone);
+        }
+    }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const editedData = {
+            firstName,
+            lastName,
+            email,
+            address,
+            phone
+        }
+
+        axios.put('http://localhost:3001/user/update', editedData, {
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+            .then(response => response.data)
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+
+    }
+
 
     return (
         <div className='editProfileContainer'>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className='formInput'>
                     <label htmlFor='firstName' className='formLabel'>First Name</label>
                     <input
