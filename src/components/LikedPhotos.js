@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import PhotoCard from './components/PhotoCard';
+import PhotoCard from './PhotoCard';
 
 function LikedPhotos() {
     const [likedPhotos, setLikedPhotos] = React.useState(null);

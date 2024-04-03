@@ -7,7 +7,7 @@ import UploadPhoto from './UploadPhoto';
 import MyPhotos from './MyPhotos';
 import Home from './Home';
 import PhotoDetailsComponent from './PhotoDetailsComponent';
-import LikedPhotos from '../LikedPhotos';
+import LikedPhotos from './LikedPhotos';
 
 
 function BodyComponent() {
