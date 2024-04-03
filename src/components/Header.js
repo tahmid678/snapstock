@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 
 function Header() {
+    const token = localStorage.getItem('token');
     return (
         <div className='heading'>
             <h2>SnapStock</h2>
@@ -13,12 +14,19 @@ function Header() {
                 <li>
                     <NavLink to='/photos'>Photos</NavLink>
                 </li>
-                <li>
-                    <NavLink to='/profile'>Profile</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/login'>Login</NavLink>
-                </li>
+                {token === null ?
+                    null :
+                    <li>
+                        <NavLink to='/profile'>Profile</NavLink>
+                    </li>
+                }
+                {token === null ?
+                    <li>
+                        <NavLink to='/login'>Login</NavLink>
+                    </li>
+                    :
+                    null
+                }
             </ul>
         </div>
     )

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Login() {
     const [firstName, setFirstName] = React.useState('');
@@ -10,6 +11,8 @@ function Login() {
     const [phone, setPhone] = React.useState('');
     const [profileImage, setProfileImage] = React.useState(null);
     const [mode, setMode] = React.useState('Sign In');
+
+    const navigate = useNavigate();
 
 
     const handleSubmit = (e) => {
@@ -62,6 +65,7 @@ function Login() {
                 .then(data => {
                     console.log(data);
                     localStorage.setItem('token', data);
+                    navigate('/profile');
                 })
                 .catch(err => console.log(err));
         }

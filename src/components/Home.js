@@ -5,13 +5,18 @@ import PhotoDetailsCard from './PhotoDetailsCard';
 function Home() {
     const [photos, setPhotos] = React.useState(null);
     const [likeToggle, setLikeToggle] = React.useState(false);
+    const [token, setToken] = React.useState(null);
+
+    React.useEffect(() => {
+        setToken(localStorage.getItem('token'));
+    }, [])
 
     React.useEffect(() => {
         axios.get('http://localhost:3001/photo/get-all-photos')
             .then(response => response.data)
             .then(data => setPhotos(data))
             .catch(err => console.log(err));
-    }, [likeToggle])
+    }, [likeToggle, token])
 
     const likeOrUnlikePhoto = (mode, photoId) => {
         if (mode === 'like') {

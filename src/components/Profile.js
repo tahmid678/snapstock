@@ -17,6 +17,10 @@ function Profile() {
                 setBase64Image(Buffer.from(binaryImage, 'binary').toString('base64'));
             })
     }, [userId])
+
+    const logOut = () => {
+        localStorage.removeItem('token');
+    }
     return (
         <div className='profileContainer'>
             <div className='profileMenu'>
@@ -28,7 +32,7 @@ function Profile() {
                 <NavLink to='upload-photo'>Upload Photo</NavLink>
                 <NavLink to='my-photos'>My Photos</NavLink>
                 <NavLink to='liked-photos'>Liked Photos</NavLink>
-                <NavLink to='logout'>Log Out</NavLink>
+                <NavLink to='/' onClick={logOut}>Log Out</NavLink>
             </div>
             <div className='profileContent'>
                 <Outlet />
