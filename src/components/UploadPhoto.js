@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function UploadPhoto() {
     const [name, setName] = React.useState('');
-    const [category, setCategory] = React.useState('Choose a category..');
+    const [category, setCategory] = React.useState('Sports');
     const [description, setDescription] = React.useState('');
     const [photo, setPhoto] = React.useState(null);
 
@@ -17,7 +17,6 @@ function UploadPhoto() {
         formData.append('photo', photo);
 
         const token = localStorage.getItem('token');
-
         axios.post('http://localhost:3001/photo/upload', formData, {
             headers: {
                 "Content-Type": 'multipart/form-data',

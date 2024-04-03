@@ -22,7 +22,7 @@ function PhotoDetailsCard({ photo }) {
             <h4 className='imageCategory'>{imageCategory}</h4>
             <div className='imageNavigation'>
                 <div className='imageDetailsButton'>
-                    <button onClick={() => navigate('/photo-details', { replace: false, state: { photo } })}>Details</button>
+                    <button onClick={() => navigate('/photo-details', { replace: false, state: { photoId } })}>Details</button>
                 </div>
                 <div className='imageLikeInfo'>
                     <FontAwesomeIcon className='likeIcon' icon={faHeart} />
