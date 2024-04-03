@@ -17,7 +17,7 @@ function PhotoDetailsComponent() {
     const [imageLikes, setImageLikes] = React.useState(null);
     const [comment, setComment] = React.useState('');
     const [comments, setComments] = React.useState('');
-    const [toogleComments, setToogleComments] = React.useState(false);
+    const [toggleComments, setToggleComments] = React.useState(false);
 
     const { state } = useLocation();
     const { photoId } = state;
@@ -37,7 +37,7 @@ function PhotoDetailsComponent() {
                 setComments(data.comments);
             })
             .catch(err => console.log(err));
-    }, [toogleComments])
+    }, [toggleComments])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ function PhotoDetailsComponent() {
         })
             .then(response => response.data)
             .then(data => {
-                setToogleComments(prevState => prevState ? false : true);
+                setToggleComments(prevState => prevState ? false : true);
                 setComment('');
             })
             .catch(err => console.log(err));

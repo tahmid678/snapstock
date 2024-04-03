@@ -1,11 +1,11 @@
 import React from 'react';
 import { Buffer } from 'buffer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 
 
-function PhotoDetailsCard({ photo }) {
+function PhotoDetailsCard({ photo, likeOrUnlikePhoto }) {
     console.log(photo);
     const binaryImage = photo.photo.data.data;
     const base64Image = Buffer.from(binaryImage, 'binary').toString('base64');
@@ -15,6 +15,11 @@ function PhotoDetailsCard({ photo }) {
     const imageCategory = photo.category;
     const photoId = photo._id;
     const navigate = useNavigate();
+    const likes = photo.author.likes;
+    const authorId = photo.author._id;
+    const mode = likes.includes(photoId);
+    const authorLikes = photo.author.likes;
+    const likedByAuthor = authorLikes.includes(photoId);
     return (
         <div className='photoDetailsCard'>
             <img src={`data:image/jpg;base64,${base64Image}`} alt={imageName} />
@@ -25,7 +30,13 @@ function PhotoDetailsCard({ photo }) {
                     <button onClick={() => navigate('/photo-details', { replace: false, state: { photoId } })}>Details</button>
                 </div>
                 <div className='imageLikeInfo'>
-                    <FontAwesomeIcon className='likeIcon' icon={faHeart} />
+                    <FontAwesomeIcon className='likeIcon' icon={faHeart} style={likedByAuthor ? { color: "red" } : { color: 'gray' }} onClick={() => {
+                        if (!mode) {
+                            likeOrUnlikePhoto('like', photoId);
+                        } else {
+                            likeOrUnlikePhoto('unlike', photoId);
+                        }
+                    }} />
                     <h5 className='imageLike'>{imageLikes}</h5>
                 </div>
             </div>
