@@ -294,3 +294,11 @@
 .footer p {
   display: inline-block;
 }
+
+/* liked photos styles  */
+.likedPhotos {
+  display: flex;
+  justify-content: start;
+  padding: 3px;
+  margin: 5px;
+}

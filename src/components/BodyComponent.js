@@ -7,6 +7,7 @@ import UploadPhoto from './UploadPhoto';
 import MyPhotos from './MyPhotos';
 import Home from './Home';
 import PhotoDetailsComponent from './PhotoDetailsComponent';
+import LikedPhotos from '../LikedPhotos';
 
 
 function BodyComponent() {
@@ -19,6 +20,7 @@ function BodyComponent() {
                 <Route path='edit-profile' element={<EditProfile />} />
                 <Route path='upload-photo' element={<UploadPhoto />} />
                 <Route path='my-photos' element={<MyPhotos />} />
+                <Route path='liked-photos' element={<LikedPhotos />} />
             </Route>
         </Routes>
     )
