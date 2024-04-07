@@ -3,9 +3,10 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { Buffer } from 'buffer';
 import axios from 'axios';
+import AuthenticationContext from '../utils/AuthenticationContext';
 
 function Profile() {
-    const token = localStorage.getItem('token');
+    const { token } = React.useContext(AuthenticationContext);
     const [base64Image, setBase64Image] = React.useState(null);
     const { userId, firstName } = jwtDecode(token);
 
@@ -18,9 +19,6 @@ function Profile() {
             })
     }, [userId])
 
-    const logOut = () => {
-        localStorage.removeItem('token');
-    }
     return (
         <div className='profileContainer'>
             <div className='profileMenu'>
@@ -32,7 +30,6 @@ function Profile() {
                 <NavLink to='upload-photo'>Upload Photo</NavLink>
                 <NavLink to='my-photos'>My Photos</NavLink>
                 <NavLink to='liked-photos'>Liked Photos</NavLink>
-                <NavLink to='/' onClick={logOut}>Log Out</NavLink>
             </div>
             <div className='profileContent'>
                 <Outlet />

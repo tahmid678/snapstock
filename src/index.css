@@ -32,6 +32,49 @@
   color: white;
 }
 
+.dropbtn {
+  background-color: dodgerblue;
+  color: white;
+  font-size: 20px;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: dodgerblue;
+}
+
 /* login component style  */
 .loginFormContainer {
   width: 30%;
@@ -286,7 +329,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%;
 }
@@ -301,4 +344,55 @@
   justify-content: start;
   padding: 3px;
   margin: 5px;
+}
+
+.loginComponent {
+  width: 100%;
+}
+
+.alertMessage {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid green;
+  width: 50%;
+  margin: 5px auto;
+}
+
+.searchInput {
+  height: 20px;
+  border: none;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+.userDetails {
+  width: 50%;
+  border: 1px solid black;
+  margin: 10px auto;
+}
+
+.userDetails h1 {
+  text-align: center;
+  background-color: #198754;
+  color: white;
+}
+
+.userDetails h3 {
+  color: #198754;
+}
+
+.uploadCount {
+  display: inline;
+}
+
+.userDetails span {
+  color: red;
+}
+
+.photoByCategoryContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 10px;
+  padding: 10px;
 }
